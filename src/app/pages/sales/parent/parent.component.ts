@@ -71,7 +71,7 @@ export class ParentComponent implements OnInit {
     // Establece un nuevo timeout para cambiar hasDeleted a false después de 3000 milisegundos (3 segundos).
     this.timeout = setTimeout(() => {
       this.hasDeleted = false;
-    }, 3000);
+    }, 2000);
   }
 
 
