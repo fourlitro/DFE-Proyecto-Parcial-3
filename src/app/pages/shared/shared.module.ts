@@ -1,21 +1,33 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BannerComponent } from './banner/banner.component';
+
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+
+import { HeaderComponent } from './header/header.component'; 
 import { FooterComponent } from './footer/footer.component';
+import { ScrollButtonComponent } from './scroll-button/scroll-button.component';
+import { ModalComponent } from './modal/modal.component';
 
 
 
 @NgModule({
   declarations: [
-    BannerComponent,
-    FooterComponent
+    HeaderComponent,
+    FooterComponent,
+    ScrollButtonComponent,
+    ModalComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterOutlet,
+    RouterLink,
+    RouterLinkActive
   ],
   exports:[
-    BannerComponent,
-    FooterComponent
+    HeaderComponent,
+    FooterComponent,
+    ScrollButtonComponent,
+    ModalComponent
   ]
 })
 export class SharedModule { }

@@ -1,2 +1,10 @@
-<app-summary></app-summary>
-<app-table></app-table>
+<h1
+    class="text-4xl font-bold tracking-tight text-yellow-400  mt-4 sm:text-5xl md:text-6xl lg:text-4xl xl:text-5xl text-center">
+    Tabla de ventas realizadas </h1>
+<div class="flex lg:flex-row justify-center items-center">
+    <app-table [data]="data" (deleteSale)="deleteSale($event)"
+        (cantidadProductosVendido)="cantidadVideojuegosVendidos()"></app-table>
+    <app-summary [productosTotal]="productosTotal" [precioTotal]="precioTotal" ></app-summary>
+</div>
+<app-modal *ngIf="hasDeleted" [action]="'kirby'" [message]="'Venta eliminada correctamente'"></app-modal>
+

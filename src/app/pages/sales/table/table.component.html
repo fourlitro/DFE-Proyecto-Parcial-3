@@ -1,1 +1,36 @@
-<p>table works!</p>
+<!-- Aqui se vera la tabla -->
+<section class="bg-black text-white p-4 m-2 md:p-8 md:m-8 rounded-lg shadow-lg overflow-x-auto">
+  <table class="min-w-full" *ngIf="data.length>0" >
+    <thead>
+      <tr class="text-yellow-300">
+        <th class="py-2 px-2 md:px-4 border-b">ID Venta</th>
+        <th class="py-2 px-2 md:px-4 border-b">Título</th>
+        <th class="py-2 px-2 md:px-4 border-b">Cantidad</th>
+        <th class="py-2 px-2 md:px-4 border-b">Precio</th>
+        <th class="py-2 px-2 md:px-4 border-b">Precio Total</th>
+        <th class="py-2 px-2 md:px-4 border-b">Fecha</th>
+        <th class="py-2 px-2 md:px-4 border-b"></th> <!-- aquí añadiremos los botones -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of data" class="hover:bg-gray-700">
+        <td class="py-2 px-2 md:px-4 border-b">{{ row.id }}</td>
+        <td class="py-2 px-2 md:px-4 border-b">{{ getTitulo(row.idVideojuego, videojuegos!)  }}</td>
+        <td class="py-2 px-2 md:px-4 border-b">{{ row.cantidad }}</td>
+        <td class="py-2 px-2 md:px-4 border-b">$ {{ getPrecio(row.idVideojuego, videojuegos!)  }}</td>
+        <td class="py-2 px-2 md:px-4 border-b">{{ row.precio }}</td>
+        <td class="py-2 px-2 md:px-4 border-b">{{ row.fecha }}</td>
+        <td class="py-2 px-2 md:px-4 border-b">
+          <button data-id="{{row.id}}" (click)="deleteSale.emit({$event, cantidadVideojuegosVendidos})"
+            class="bg-red-500 hover:bg-red-700 text-white py-1 px-2 md:py-2 md:px-4 rounded focus:outline-none focus:shadow-outline-red">
+            Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div *ngIf="!data || data.length === 0" class="text-center pt-4 font-bold">
+    <p>No hay ventas</p>
+    <p>. . .</p>
+  </div>
+</section>
